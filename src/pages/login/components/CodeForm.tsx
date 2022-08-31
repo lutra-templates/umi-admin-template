@@ -49,15 +49,25 @@ const CodeForm: React.FC<LoginProps> = ({ onLogin, loading }) => {
       clearTimeout(timer);
     };
   }, [state.authTime, setState]);
+
+  const initialValues={
+    phone: '13496035481',
+  }
+
+  const labelCol={
+    span: 5,
+  }
+
+  const spanStyle={ color: '#aaa' }
+
+  const colStyle={ display: 'flex', justifyContent: 'flex-end' }
+
+  const btnStyle={ width: '100%' }
   return (
     <Form
       form={form}
-      initialValues={{
-        phone: '13496035481',
-      }}
-      labelCol={{
-        span: 5,
-      }}
+      initialValues={initialValues}
+      labelCol={labelCol}
       onFinish={handleLogin}
       onFieldsChange={currents => {
         const current = currents[0];
@@ -76,7 +86,7 @@ const CodeForm: React.FC<LoginProps> = ({ onLogin, loading }) => {
     >
       <Form.Item name="phone" label="手机号" rules={[phoneValidator()]}>
         <Input
-          prefix={<span style={{ color: '#aaa' }}>+86</span>}
+          prefix={<span style={spanStyle}>+86</span>}
           placeholder="Phone"
           autoComplete="on"
         />
@@ -100,7 +110,7 @@ const CodeForm: React.FC<LoginProps> = ({ onLogin, loading }) => {
               />
             </Form.Item>
           </Col>
-          <Col span={9} style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Col span={9} style={colStyle}>
             <Button
               disabled={state.authTime > 0 ? true : false}
               type="primary"
@@ -115,7 +125,7 @@ const CodeForm: React.FC<LoginProps> = ({ onLogin, loading }) => {
       </Form.Item>
       <Form.Item>
         <Button
-          style={{ width: '100%' }}
+          style={btnStyle}
           type="primary"
           disabled={state.submitDisabled}
           htmlType="submit"

@@ -9,6 +9,8 @@ export interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ title, logo }) => {
   const isUrl = urlReg.test(logo);
+  const iconStyle={ fontSize: 26 }
+  const spanStyle={ marginLeft: 10}
   return (
     <h1 className={styles.logo}>
       {logo ? (
@@ -18,10 +20,10 @@ const Logo: React.FC<LogoProps> = ({ title, logo }) => {
           alt="logo"
         />
       ) : (
-        <SketchOutlined style={{ fontSize: 26 }} />
+        <SketchOutlined style={iconStyle} />
       )}
 
-      <span style={{ marginLeft: 10 }}>{title}</span>
+      <span style={spanStyle}>{title}</span>
     </h1>
   );
 };

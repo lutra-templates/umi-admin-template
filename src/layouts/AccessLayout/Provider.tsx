@@ -48,8 +48,10 @@ const AccessLayoutProvider: React.FC<IRouteComponentProps & {
       setLayoutState(newLayoutState);
     }
   }, [path, routesState]);
+
+  const value={ layoutState, setTabPanes }
   return (
-    <LayoutContext.Provider value={{ layoutState, setTabPanes }}>
+    <LayoutContext.Provider value={value}>
       {children}
     </LayoutContext.Provider>
   );

@@ -38,6 +38,12 @@ const NavBar: React.FC = () => {
       setTabPanes(state.tabPanes);
     }
   }, [tabPanes, isMathRoles, setState]);
+
+  const contentProps={
+    style: {
+      height: '100%',
+    },
+  }
   return React.createElement(
     setting.navbarFixed || !isMobile ? Affix : 'div',
     null,
@@ -58,11 +64,7 @@ const NavBar: React.FC = () => {
               className={styles.breadcrumbscrollWrapper}
               noScrollY
               removeTracksWhenNotUsed={true}
-              contentProps={{
-                style: {
-                  height: '100%',
-                },
-              }}
+              contentProps={contentProps}
             >
               <div className={styles.breadcrumb}>
                 <Breadcrumb

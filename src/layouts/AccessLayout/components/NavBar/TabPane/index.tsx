@@ -27,6 +27,7 @@ const TabPane: React.FC<TabPaneProps> = ({ path, tabPanes, tabKey }) => {
     history.replace(key);
   };
 
+  const tabBarStyle={ margin: 0 }
   return (
     <div className={styles.headerTabPane}>
       <Tabs
@@ -34,7 +35,7 @@ const TabPane: React.FC<TabPaneProps> = ({ path, tabPanes, tabKey }) => {
         onTabClick={onTabClick}
         type="card"
         hideAdd
-        tabBarStyle={{ margin: 0 }}
+        tabBarStyle={tabBarStyle}
       >
         {tabPanes.map(pane => {
           const tabName = pane.tabName || pane.name;

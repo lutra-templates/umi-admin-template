@@ -14,9 +14,10 @@ interface BreadcrumbContent {
 }
 
 const BreadcrumbContent: React.FC<BreadcrumbContent> = ({ icon, name }) => {
+  const style={ marginRight: 5 }
   return (
     <>
-      {icon && <TotalIcons style={{ marginRight: 5 }} name={icon} />}
+      {icon && <TotalIcons style={style} name={icon} />}
       {name}
     </>
   );

@@ -49,6 +49,11 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
     },
   });
 
+  const style={
+    position: setting.navbarFixed ? 'fixed' : 'absolute',
+    top: state.top,
+    left: state.left,
+  }
   return (
     <div ref={ref} className={styles.menuContainer}>
       {children}
@@ -56,11 +61,7 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
         createPortal(
           <div
             onClick={e => e.stopPropagation()}
-            style={{
-              position: setting.navbarFixed ? 'fixed' : 'absolute',
-              top: state.top,
-              left: state.left,
-            }}
+            style={style}
             className={styles.contextMenu}
           >
             {menus &&

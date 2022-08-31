@@ -12,15 +12,22 @@ const PasswordForm: React.FC<LoginProps> = ({ onLogin, loading }) => {
     const { username, password } = valuse;
     onLogin(username, password);
   };
+
+  const initialValues={
+    username: 'admin',
+    password: '123456',
+  }
+
+  const labelCol={
+    span: 5,
+  }
+
+  const btnStyle={ width: '100%' }
+
   return (
     <Form
-      initialValues={{
-        username: 'admin',
-        password: '123456',
-      }}
-      labelCol={{
-        span: 5,
-      }}
+      initialValues={initialValues}
+      labelCol={labelCol}
       onFinish={handleLogin}
     >
       <Form.Item
@@ -43,7 +50,7 @@ const PasswordForm: React.FC<LoginProps> = ({ onLogin, loading }) => {
       </Form.Item>
       <Form.Item>
         <Button
-          style={{ width: '100%' }}
+          style={btnStyle}
           type="primary"
           htmlType="submit"
           loading={loading}

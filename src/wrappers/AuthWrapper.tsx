@@ -57,9 +57,10 @@ const AuthWrapper: React.FC = ({ children }) => {
     if (isWhiteListPage) {
       return <>{children}</>;
     } else {
+      const toRoute={ pathname: '/login', search: `?redirect=${pathname + search}` }
       return (
         <Redirect
-          to={{ pathname: '/login', search: `?redirect=${pathname + search}` }}
+          to={toRoute}
         ></Redirect>
       );
     }

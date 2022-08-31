@@ -43,9 +43,17 @@ const AccessLayout: React.FC<IRouteComponentProps> = props => {
     [setState],
   );
 
+  const value={ toggleFull, collapsed, setCollapsed }
+
+  const style={
+    minHeight: '100vh',
+    paddingLeft: isMobile ? (collapsed ? 80 : 200) : 0,
+    transition: 'all 0.2s',
+  }
+
   return (
     <AccessLayoutContext.Provider
-      value={{ toggleFull, collapsed, setCollapsed }}
+      value={value}
     >
       {/* 修改标题 */}
       {setting.autoGetTitle && (
@@ -56,11 +64,7 @@ const AccessLayout: React.FC<IRouteComponentProps> = props => {
 
       <div className="umi-admin-layout" ref={fullRef}>
         <Layout
-          style={{
-            minHeight: '100vh',
-            paddingLeft: isMobile ? (collapsed ? 80 : 200) : 0,
-            transition: 'all 0.2s',
-          }}
+          style={style}
         >
           <SiderBar
             pathname={pathname}
