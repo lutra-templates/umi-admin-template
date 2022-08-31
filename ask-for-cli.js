@@ -50,14 +50,14 @@ const askQuestion=
         }
         const dir = `${setting.targetDir}/${name}`;
         // 不存在自动新建，并返回路径
-        const path = await fse.ensureDir(dir);
+        // const path = await fse.ensureDir(dir);
 
-        console.log("fse path",path)
+        console.log("dir",dir)
 
-        if (!path) {
-          warningLog('\n已存在同名目录，请检查后重新输入');
-          return false;
-        }
+        // if (!path) {
+        //   warningLog('\n已存在同名目录，请检查后重新输入');
+        //   return false;
+        // }
 
         return true;
       },
